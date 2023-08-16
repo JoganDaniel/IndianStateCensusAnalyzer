@@ -1,7 +1,11 @@
-﻿internal class Program
+﻿using System;
+namespace IndianStateCensusAnalyzer
 {
-    private static void Main(string[] args)
+    public class Program
     {
-        Console.WriteLine("Indian State Census analyzer");
+        private static void Main(string[] args)
+        {
+            Console.WriteLine("Indian State Census analyzer");
+        }
     }
 }

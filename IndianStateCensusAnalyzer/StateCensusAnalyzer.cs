@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IndianStateCensusAnalyzer
 {
-    public class CSVStateCensus
+    public class StateCensusAnalyzer
     {
         public static int ReadStateCensusData(string filepath)
         {
@@ -17,6 +17,11 @@ namespace IndianStateCensusAnalyzer
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     var records = csv.GetRecords<StateCensusData>().ToList();
+                    Console.WriteLine("Read data from CSV");
+                    foreach (var data in records)
+                    {
+                        Console.WriteLine(data.State + "___" + data.Population + "___" + data.AreaInSqKm + "___" + data.DensityPerSqKm);
+                    }
                     return records.Count() - 1;
                 }
             }
