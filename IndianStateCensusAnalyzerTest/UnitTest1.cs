@@ -7,7 +7,7 @@ namespace IndianStateCensusAnalyzerTest
     {
 
         public string stateCensusDataFilePath = @"E:\Bridgelabz\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\Files\StateCensusData.csv";
-        public string stateCensusDataFilePathincorrect = @"E:\Bridgelabz\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\Files\StateCensusData.txt";
+        public string stateCensusDataFilePathincorrect = @"C:\Users\JoganDanielA\Desktop\jvvj.txt";
         public string stateCensusDataFilePathNotExist = @"jhuf.csv";
         [Test]
         public void GivenStateCensusData_WhenAnalysed_RecordsShouldBeMatched()
@@ -51,6 +51,19 @@ namespace IndianStateCensusAnalyzerTest
             catch (CensusAnalyserException ex)
             {
                 Assert.AreEqual(ex.Message, "Header incorrect");
+            }
+        }
+
+        [Test]
+        public void GivenStateDelimeterIncorrect_WhenAnalysed_ShouldReturnException()
+        {
+            try
+            {
+                StateCensusAnalyzer.ReadStateCensusData(stateCensusDataFilePath);
+            }
+            catch (CensusAnalyserException ex)
+            {
+                Assert.AreEqual(ex.Message, "Delimeter Incorrect");
             }
         }
     }

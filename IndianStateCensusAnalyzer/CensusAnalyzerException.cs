@@ -12,7 +12,7 @@ namespace IndianStateCensusAnalyser
     {
         public enum ExceptionType
         {
-            FILE_INCORRECT, FILE_NOT_EXISTS , HEADER_INCORRECT
+            FILE_INCORRECT, FILE_NOT_EXISTS , HEADER_INCORRECT , DELIMITER_INCORRECT
         }
         public ExceptionType type;
         public CensusAnalyserException(ExceptionType type, string message) : base(message)
