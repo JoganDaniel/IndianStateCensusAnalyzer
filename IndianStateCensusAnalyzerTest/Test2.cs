@@ -1,27 +1,29 @@
-using IndianStateCensusAnalyser;
+﻿using IndianStateCensusAnalyser;
 using IndianStateCensusAnalyzer;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace IndianStateCensusAnalyzerTest
 {
-    public class Tests
+    public class Test2
     {
-
-        public string stateCensusDataFilePath = @"E:\Bridgelabz\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\Files\StateCensusData.csv";
-        public string stateCensusDataFilePathincorrect = @"C:\Users\JoganDanielA\Desktop\jvvj.txt";
-        public string stateCensusDataFilePathNotExist = @"jhuf.csv";
-        public string stateCensusDataFilePathIncorrectDelimiter = @"E:\Bridgelabz\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\Files\StateCensusData2.csv";
+        public static string stateCodeDataFilePath = @"E:\Bridgelabz\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\IndianStateCensusAnalyzer\Files\StateCode.csv";
+        public static string stateCodeDataFilePathNotExist = @"uyyvufv.csv";
+        public static string stateCodeDataFilePathincorrect = @"C:\Users\JoganDanielA\Desktop\jvvj.txt";
         [Test]
         public void GivenStateCensusData_WhenAnalysed_RecordsShouldBeMatched()
         {
-            Assert.AreEqual(StateCensusAnalyzer.ReadStateCensusData(stateCensusDataFilePath),
-                CSVStateCensus.ReadStateCensusData(stateCensusDataFilePath));
+            Assert.AreEqual(StateCodeAnalyzer.ReadStateCodeData(stateCodeDataFilePath),36);
         }
         [Test]
         public void GivenStateCencusDataFileIncorrect_WhenAnalysed_ShouldReturnException()
         {
             try
             {
-                StateCensusAnalyzer.ReadStateCensusData(stateCensusDataFilePathincorrect);
+                StateCodeAnalyzer.ReadStateCodeData(stateCodeDataFilePathincorrect);
             }
             catch (CensusAnalyserException ex)
             {
@@ -34,7 +36,7 @@ namespace IndianStateCensusAnalyzerTest
         {
             try
             {
-                StateCensusAnalyzer.ReadStateCensusData(stateCensusDataFilePathNotExist);
+                StateCodeAnalyzer.ReadStateCodeData(stateCodeDataFilePathNotExist);
             }
             catch (CensusAnalyserException ex)
             {
@@ -47,7 +49,7 @@ namespace IndianStateCensusAnalyzerTest
         {
             try
             {
-                StateCensusAnalyzer.ReadStateCensusData(stateCensusDataFilePath);
+                StateCodeAnalyzer.ReadStateCodeData(stateCodeDataFilePath);
             }
             catch (CensusAnalyserException ex)
             {
@@ -60,7 +62,7 @@ namespace IndianStateCensusAnalyzerTest
         {
             try
             {
-                StateCensusAnalyzer.ReadStateCensusData(stateCensusDataFilePathIncorrectDelimiter);
+                StateCodeAnalyzer.ReadStateCodeData(stateCodeDataFilePath);
             }
             catch (CensusAnalyserException ex)
             {
